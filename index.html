@@ -194,13 +194,24 @@ body {
 function mostrarFinal(){
     document.getElementById("final").style.display = "block";
 
-    // vibración celular
+    // Vibración celular
     if (navigator.vibrate) {
         navigator.vibrate([200,100,200]);
     }
+
+    // 💥 EXPLOSIÓN DE CORAZONES
+    for (let i = 0; i < 40; i++) {
+        const h = document.createElement("div");
+        h.className = "explosion";
+        h.innerHTML = "❤️";
+        h.style.setProperty("--x", (Math.random() * 400 - 200) + "px");
+        h.style.setProperty("--y", (Math.random() * 400 - 200) + "px");
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 1200);
+    }
 }
 
-// Lluvia de corazones
+// 🌧️ Lluvia continua de corazones
 function lluvia(){
     const c = document.createElement("div");
     c.className = "corazon";
@@ -215,3 +226,4 @@ setInterval(lluvia, 250);
 
 </body>
 </html>
+
