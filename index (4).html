@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Laura ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle, #450000, #000);
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Slides */
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: slide 22s infinite;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide:nth-child(1){animation-delay:0s;}
+.slide:nth-child(2){animation-delay:11s;}
+
+@keyframes slide {
+    0%{opacity:0}
+    10%{opacity:1}
+    40%{opacity:1}
+    50%{opacity:0}
+    100%{opacity:0}
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+
+/* Contenido */
+.contenido {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.nombre {
+    font-size: 4rem;
+    color: #ffb3c1;
+    text-shadow: 0 0 30px red;
+}
+
+.mensaje {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Botón */
+.boton {
+    margin-top: 30px;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff4b5c, #ff9aa2);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(255,0,0,0.7);
+}
+
+.boton:hover {
+    transform: scale(1.1);
+}
+
+/* Final */
+.final {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #600000, #000);
+    color: white;
+    text-align: center;
+    animation: aparecer 2s forwards;
+}
+
+.final h1 {
+    margin-top: 40vh;
+    font-size: 4rem;
+    color: #ff9aa2;
+    text-shadow: 0 0 40px red;
+}
+
+/* Animaciones */
+@keyframes aparecer {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+/* Corazones */
+.corazon {
+    position: absolute;
+    color: pink;
+    font-size: 20px;
+    animation: flotar 5s linear infinite;
+}
+
+@keyframes flotar {
+    0% {top:-10%; opacity:0;}
+    10%{opacity:1;}
+    100% {top:110%; opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide">
+    <img src="laura1.jpg">
+    <div class="overlay"></div>
+    <div class="contenido">
+        <div class="nombre">💖 Laura 💖</div>
+        <div class="mensaje">
+            Eres hermosa desde el primer día que te vi. <br><br>
+            Desde ese instante algo cambió en mí,
+            porque tu sonrisa se quedó grabada en mi corazón
+            como un recuerdo que no quiero borrar jamás.
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+    <img src="laura2.jpg">
+    <div class="overlay"></div>
+    <div class="contenido">
+        <div class="nombre">💍 Feliz San Valentín 💍</div>
+        <div class="mensaje">
+            El destino eligió que estuviéramos juntos,
+            pero yo todos los días decido quedarme contigo. <br><br>
+            Gracias por ser mi paz, mi alegría
+            y la persona que quiero amar siempre.
+        </div>
+
+        <button class="boton" onclick="mostrarFinal()">🎁 Toca aquí</button>
+    </div>
+</div>
+
+<!-- FINAL -->
+<div class="final" id="final">
+    <h1>Te amo ❤️</h1>
+</div>
+
+<!-- Música -->
+<audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function mostrarFinal(){
+    document.getElementById("final").style.display = "block";
+}
+
+// Lluvia de corazones
+function lluvia(){
+    const c = document.createElement("div");
+    c.className = "corazon";
+    c.innerHTML = "❤";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.fontSize = (Math.random() * 25 + 15) + "px";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 5000);
+}
+setInterval(lluvia, 250);
+</script>
+
+</body>
+</html>
