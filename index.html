@@ -21,16 +21,18 @@ background-position: center;
     position: absolute;
     width: 100%;
     height: 100%;
+    background: black;
     opacity: 0;
     animation: slide 22s infinite;
 }
 
 .slide img {
-    width: 100%;
+    width: auto;
     height: 100%;
-    object-fit: cover;
-    transform: scale(0.85);
-    transition: transform 1s ease;
+    max-width: 420px;
+    object-fit: contain;
+    margin: auto;
+    display: block;
 }
 
 .slide:nth-child(1){animation-delay:0s;}
@@ -200,6 +202,7 @@ setInterval(lluvia, 250);
 
 </body>
 </html>
+
 
 
 
